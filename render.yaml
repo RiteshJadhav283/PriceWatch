@@ -3,7 +3,7 @@ services:
   - type: web
     name: pricewatch-api
     runtime: node
-    region: oregon
+    region: singapore
     rootDir: Backend
     buildCommand: npm install
     startCommand: npm start
@@ -24,7 +24,6 @@ services:
   - type: web
     name: pricewatch
     runtime: static
-    region: oregon
     rootDir: Frontend
     buildCommand: npm install && npm run build
     staticPublishPath: dist
