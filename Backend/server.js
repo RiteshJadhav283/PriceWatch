@@ -10,10 +10,18 @@ const app = express();
 // Create HTTP server for Socket.io
 const server = http.createServer(app);
 
+// Allowed origins for CORS
+const allowedOrigins = [
+    'http://localhost:5173',
+    'http://localhost:5174',
+    'http://localhost:5175',
+    process.env.FRONTEND_URL
+].filter(Boolean);
+
 // Initialize Socket.io with CORS
 const io = new Server(server, {
     cors: {
-        origin: ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175'],
+        origin: allowedOrigins,
         methods: ['GET', 'POST'],
         credentials: true
     }
@@ -25,7 +33,7 @@ const { initializePriceChecker, triggerPriceCheck, getPriceCheckerStatus } = req
 
 // CORS configuration - allow frontend
 app.use(cors({
-    origin: ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175'],
+    origin: allowedOrigins,
     credentials: true
 }));
 

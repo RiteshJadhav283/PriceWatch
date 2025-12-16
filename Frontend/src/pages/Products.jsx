@@ -6,7 +6,7 @@ import '../styles/Auth.css';
 import '../styles/Products.css';
 import '../styles/PriceHistoryChart.css';
 
-const API_URL = 'http://localhost:3000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
 
 // Seller icon mapping - maps seller names to custom logo paths
 const SELLER_ICONS = {
